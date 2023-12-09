@@ -1,4 +1,6 @@
+// src/App.tsx
 import React, { useState, useEffect } from 'react';
+import './App.css'; // Archivo de estilos CSS
 
 const App: React.FC = () => {
   const [data, setData] = useState([]);
@@ -47,6 +49,8 @@ const App: React.FC = () => {
         console.log('Datos enviados correctamente');
         // Actualizar la lista de datos después de enviar los nuevos datos
         fetchData();
+        // Limpiar el formulario después de enviar datos
+        setFormData({ nombre: '', edad: '', fechaNacimiento: '' });
       } else {
         console.error('Error al enviar datos al servidor');
       }
@@ -56,9 +60,9 @@ const App: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="app-container">
       <h1>Ingreso de Datos</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-container">
         <label>
           Nombre:
           <input
@@ -91,7 +95,7 @@ const App: React.FC = () => {
         <br />
         <button type="submit">Enviar Datos</button>
       </form>
-      <ul>
+      <ul className="data-list">
         {data.map((item: any) => (
           <li key={item.id}>
             {item.nombre} - {item.edad} años - {item.fechaNacimiento}
