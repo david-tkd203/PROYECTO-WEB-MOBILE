@@ -15,7 +15,7 @@ const App: React.FC = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/data');
+      const response = await fetch('http://localhost:3306/api/data');
       if (response.ok) {
         const result = await response.json();
         setData(result);
@@ -36,7 +36,7 @@ const App: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3001/api/addData', {
+      const response = await fetch('http://localhost:3306/api/addData', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
