@@ -13,6 +13,6 @@ INSERT INTO personas (nombre, edad, fechaNacimiento) VALUES
 ('María', 30, '1993-11-22');
 
 CREATE USER 'david'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456789';
-GRANT ALL PRIVILEGES ON ProyectoWebMobile.* TO 'usuario'@'localhost';
+GRANT ALL PRIVILEGES ON ProyectoWebMobile.* TO 'david'@'localhost:3306';
 FLUSH PRIVILEGES;
 

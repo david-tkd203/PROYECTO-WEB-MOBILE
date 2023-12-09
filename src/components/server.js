@@ -1,17 +1,17 @@
+// server.js
 const cors = require('cors');
 const express = require('express');
 const mysql = require('mysql');
-const path = require('path');
 
 const app = express();
-const port = 3306;
+const port = 3306;  // Cambié el puerto a 3001
 
 // Configurar la conexión a MySQL
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'david',
   password: '123456789',
-  database: 'WebMobile',
+  database: 'ProyectoWebMobile',
 });
 
 db.connect(err => {
@@ -25,7 +25,7 @@ db.connect(err => {
 // Middleware CORS (colocado antes de las rutas)
 app.use(cors());
 
-// Endpoint de ejemplo para obtener datos de MySQL
+// Endpoint para obtener datos de MySQL
 app.get('/api/data', (req, res) => {
   db.query('SELECT * FROM personas', (err, result) => {
     if (err) {
@@ -37,12 +37,9 @@ app.get('/api/data', (req, res) => {
   });
 });
 
-// Sirve archivos estáticos desde la carpeta 'public' (o ajusta según tu estructura)
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Configuración para manejar rutas no definidas (debe estar al final)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// Endpoint para agregar datos a MySQL
+app.post('/api/addData', (req, res) => {
+  // Lógica para agregar datos a la base de datos
 });
 
 app.listen(port, () => {
