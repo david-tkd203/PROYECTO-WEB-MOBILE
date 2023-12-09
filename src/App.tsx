@@ -1,4 +1,3 @@
-// src/App.tsx
 import React, { useState, useEffect } from 'react';
 
 const App: React.FC = () => {
@@ -59,8 +58,6 @@ const App: React.FC = () => {
   return (
     <div>
       <h1>Ingreso de Datos</h1>
-
-      {/* Formulario para ingresar datos */}
       <form onSubmit={handleSubmit}>
         <label>
           Nombre:
@@ -94,8 +91,6 @@ const App: React.FC = () => {
         <br />
         <button type="submit">Enviar Datos</button>
       </form>
-
-      {/* Mostrar datos existentes */}
       <ul>
         {data.map((item: any) => (
           <li key={item.id}>
